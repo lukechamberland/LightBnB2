@@ -123,14 +123,18 @@ const getAllProperties = function (options, limit = 10) {
 
   // select correct user id
   if (options.owner_id) {
-    queryString += `AND owner_id = ${options.owner_id}`;
+    queryString += `AND owner_id = ${options.owner_id} `;
   }
 
   // select all with correct cost per night  
-  if (options.minimum_price_per_night && options.maximum_price_per_night) {
-    const minimum_price_per_night = Number(options.minimum_price_per_night)
-    const maximum_price_per_night = Number(options.maximum_price_per_night)
-    queryString += `AND cost_per_night BETWEEN ${minimum_price_per_night} AND ${maximum_price_per_night}`;
+  if (options.minimum_price_per_night) {
+    const minimum_price_per_night = Number(options.minimum_price_per_night) * 100
+    queryString += `AND cost_per_night >= ${minimum_price_per_night} `;
+  }
+
+  if (options.maximum_price_per_night) {
+    const maximum_price_per_night = Number(options.maximum_price_per_night) * 100
+    queryString += `AND cost_per_night <= ${maximum_price_per_night} `;
   }
 
   queryString += `GROUP BY properties.id \n`
@@ -138,7 +142,7 @@ const getAllProperties = function (options, limit = 10) {
 
   if (options.minimum_rating) {
     const numAvgRating = Number(options.minimum_rating);
-    queryString += `HAVING avg(rating) >= ${numAvgRating}`;
+    queryString += `HAVING avg(rating) >= ${numAvgRating} `;
   }
 
   // 4
