@@ -55,8 +55,25 @@
 * `server.js` is the entry point to the application. This connects the routes to the database.
 
 # Running the project
-* navigate to directory: LightBnB_WebApp-master\ 3/
-* npm run local
+## Installations
+make sure you install the following dependencies:
+* Express: npm i express
+* PostgreSQL: npm i pg
+* Cookie-session: npm i cookie-session
+* Bcrypt: npm i bcrypt
+* Nodemon: npm i nodemon
+* dotenv: npm i dotenv
+
+## starting the app
+1. Clone this repository
+2. navigate to project directory: cd LightBnB_WebApp-master
+3. run: npm run local
+4. view the app at localhost:3000 in your browser
+
+# The app itself:
+https://github.com/lukechamberland/LightBnB2/blob/master/screenshots/Screenshot%202023-05-10%20at%2011.51.56%20PM.png?raw=true
+
+https://github.com/lukechamberland/LightBnB2/blob/master/screenshots/Screenshot%202023-05-10%20at%2011.52.02%20PM.png?raw=true
 
 # Learning outcomes for this project
 The main idea with this project is to get comfortable working with SQL, Postgress and using database structures to help create and access data within a website. Once completed, the student will have a much deeper understanding of how these databases work, writing queries within functions and creating or implementing databases to work with the website, as well as many other skills and a greater understanding of SQL in general.  
